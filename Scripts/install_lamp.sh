@@ -5,7 +5,7 @@ set -x
 
 # Actualizamos los repos
 
-dnf update -y
+apt update -y
 
 # Actualizar paquetes 
 
@@ -13,7 +13,7 @@ dnf update -y
 
 #Instalar apache
 
-dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel
+apt install -y httpd wget php-fpm php-mysqli php-json php php-devel
 
 # Iniciar el servidor httpd:
 
@@ -25,7 +25,7 @@ systemctl enable httpd
 
 # instalar sgbd mysql
 
-dnf install mariadb105-server
+apt install mariadb105-server
 
 # Iniciar servidor de apache
 
@@ -38,7 +38,7 @@ systemctl enable httpd
 
 #Instalacion del php
 
-dnf install php-mbstring php-xml -y
+apt install php-mbstring php-xml -y
 
 
 # reinicio
@@ -89,5 +89,5 @@ cp ../php/phpinfo.php /var/www/html
 
 # modificar el propietario y grupo de /var/www/html para usuario de apache
 
-chown -R apache:apache /var/www/html
+chown -R www-data:www-data /var/www/html
 
