@@ -29,7 +29,7 @@ dnf install php-intl -y
 
 dnf install php-zip -y
 
-#5. Memcached (Recommended)
+#5. Memcached y algunas tools (Recommended)
 
 dnf install memcached -y
 
