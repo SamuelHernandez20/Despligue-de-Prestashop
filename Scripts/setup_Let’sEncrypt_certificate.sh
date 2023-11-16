@@ -5,7 +5,7 @@ set -ex
 
 # Actualizamos los repositorios:
 
-yum update
+apt update
 
 # Actualizar paquetes:
 
@@ -22,7 +22,7 @@ snap refresh core
 
 # Borrar instalaciones previas de certbot con apt:
 
-yum remove certbot
+apt remove certbot
 
 # Instalamos la app cliente de certbot con snap
 

@@ -9,44 +9,40 @@ apt update -y
 
 # Actualizar paquetes 
 
-#yum upgrade
+#apt upgrade
 
-#Instalar apache
-
-apt install -y httpd wget php-fpm php-mysqli php-json php php-devel
+# Instalacion de apache
+apt install apache2 -y
 
 # Iniciar el servidor httpd:
 
-systemctl start httpd
+systemctl start apache2
 
 # Arrancar automaticamente:
 
-systemctl enable httpd
+systemctl enable apache2
 
 # instalar sgbd mysql
 
-apt install mariadb105-server
+apt install mysql-server -y
 
 # Iniciar servidor de apache
 
-systemctl start httpd
+systemctl start apache2
 
 # Activar automaticamente
 
-systemctl enable httpd
-
+systemctl enable apache2
 
 #Instalacion del php
 
-apt install php-mbstring php-xml -y
+apt install php libapache2-mod-php php-mysql -y
 
 
 # reinicio
-#----------------------------
-systemctl restart httpd
+#---------------------------->
+systemctl restart apache2
 
-systemctl restart php-fpm
-#----------------------------
 
 # Antes de nada pasamos con la eliminación de descargas previas del phpmyadmin:
 #------------------------------------------------------------------------------
@@ -61,7 +57,7 @@ wget https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-language
 
 # Instalo el unzip para descomprimir:
 
-dnf install unzip -y
+apt install unzip -y
 
 #descompresion en la carpeta /tmp
 
@@ -73,15 +69,15 @@ mv /var/www/html/phpMyAdmin-5.2.1-all-languages /var/www/html/phpmyadmin
 
 #cambiar propietario y grupo:
 
-chown -R apache:apache /var/www/html
+chown -R www-data:www-data /var/www/html
 
 #Copiar el archivo de conf de apache
 
-cp ../conf/000-default.conf /etc/httpd/conf.d
+cp ../conf/000-default.conf /etc/apache2/sites-available 
 
 #Reiniciar servicio
 
-systemctl restart httpd
+systemctl restart apache2
 
 # copiar archivo php 
 
