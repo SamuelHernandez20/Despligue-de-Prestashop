@@ -5,7 +5,7 @@ set -x
 
 # Actualizamos los repos
 
-dnf update
+dnf update -y
 
 # Actualizar paquetes 
 
@@ -13,7 +13,7 @@ dnf update
 
 #Instalar apache
 
-dnf install httpd -y
+dnf install -y httpd wget php-fpm php-mysqli php-json php php-devel
 
 # Iniciar el servidor httpd:
 
@@ -25,11 +25,28 @@ systemctl enable httpd
 
 # instalar sgbd mysql
 
-dnf install -y mariadb105
+dnf install mariadb105-server
+
+# Iniciar servidor de apache
+
+systemctl start httpd
+
+# Activar automaticamente
+
+systemctl enable httpd
+
 
 #Instalacion del php
 
-dnf install php-mbstring php-zip php-mysqli php-json php-gd php-fpm php-xml -y
+dnf install php-mbstring php-xml -y
+
+
+# reinicio
+#----------------------------
+systemctl restart httpd
+
+systemctl restart php-fpm
+#----------------------------
 
 # Antes de nada pasamos con la eliminación de descargas previas del phpmyadmin:
 #------------------------------------------------------------------------------
