@@ -53,13 +53,15 @@ systemctl restart apache2
 #---------------------------------------------------
 
 #Modificación de configuración PHP:
-#---------------------------------------------------
-
+#--------------------------------------------------------------------------------
 sed -i "s/memory_limit = 128M/$memory_limit/" /etc/php/8.1/apache2/php.ini
 
 sed -i "s/upload_max_filesize = 2M/$upload_max_filesize/" /etc/php/8.1/apache2/php.ini
 
 sed -i "s/max_input_vars = 1000/$max_input_vars/" /etc/php/8.1/apache2/php.ini
+
+sed -i "s/post_max_size = 8M/$post_max_size/" /etc/php/8.1/apache2/php.ini
+#-------------------------------------------------------------------------------
 
 #Reinciar el siguiente archivo para que se aplique la configuración:
 
@@ -76,15 +78,29 @@ wget https://github.com/PrestaShop/PrestaShop/archive/refs/tags/8.0.0.tar.gz -P 
 tar -xzvf /tmp/8.0.0.tar.gz -C /tmp
 
 
-
 # Mover el contenido de Prestashop a /var/www/html
 
 mv -f /tmp/PrestaShop-8.0.0/* /var/www/html
 
 #Creacion de usuario para la base de datos de Prestashop
-
+#----------------------------------------------------------------------------------------------------
 mysql -u root <<< "DROP DATABASE IF EXISTS $PRESTASHOP_DB_NAME"
 mysql -u root <<< "CREATE DATABASE $PRESTASHOP_DB_NAME"
 mysql -u root <<< "DROP USER IF EXISTS '$PRESTASHOP_DB_USER'@'%'"
 mysql -u root <<< "CREATE USER '$PRESTASHOP_DB_USER'@'%'IDENTIFIED BY '$PRESTASHOP_DB_PASSWORD'"
 mysql -u root <<< "GRANT ALL PRIVILEGES ON $PRESTASHOP_DB_NAME.* TO '$PRESTASHOP_DB_USER'@'%'"
+#----------------------------------------------------------------------------------------------------
+
+# instalación de Prestashop:
+
+php /var/www/html/install-dev/index_cli.php \
+    --domain=$DOMINIO \
+    --db_server=$PRESTASHOP_DB_HOST \
+    --db_name=$PRESTASHOP_DB_NAME \
+    --db_user=$PRESTASHOP_DB_USER \
+    --db_password=$PRESTASHOP_DB_PASSWORD \
+    --prefix=$PRESTASHOP_DB_PREFIX \
+    --email=$CORREO \
+    --password=$PRESTASHOP_DB_PASSWORD
+
+
