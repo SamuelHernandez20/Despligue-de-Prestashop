@@ -76,7 +76,7 @@ wget https://github.com/PrestaShop/PrestaShop/archive/refs/tags/8.0.0.tar.gz -P 
 # Lo descomprimo en la carpeta temporal
 
 tar -xzvf /tmp/8.0.0.tar.gz -C /tmp
-
+      
 
 # Mover el contenido de Prestashop a /var/www/html
 
