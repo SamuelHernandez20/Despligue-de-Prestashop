@@ -7,6 +7,8 @@ set -x
 
 apt update -y
 
+#apt upgrade -y
+
 # Importación de las variables
 
 source .env
@@ -99,8 +101,15 @@ php /var/www/html/install-dev/index_cli.php \
     --db_name=$PRESTASHOP_DB_NAME \
     --db_user=$PRESTASHOP_DB_USER \
     --db_password=$PRESTASHOP_DB_PASSWORD \
+    --language=es \
+    --name=$Nombre_tienda \
+    --country=$Pais_tienda \
+    --firstname=$Nombre_usuario \
+    --lastname=$Apellido_usuario \
+    --password=$Password_usuario \
     --prefix=$PRESTASHOP_DB_PREFIX \
     --email=$CORREO \
-    --password=$PRESTASHOP_DB_PASSWORD
+    --password=$PRESTASHOP_DB_PASSWORD \
+    --ssl=1
 
 

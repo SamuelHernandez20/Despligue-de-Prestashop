@@ -44,7 +44,7 @@ class PhpPsInfo
             'post_max_size' => '16M',
             'register_argc_argv' => false,
             'set_time_limit' => true,
-            'short_open_tag' => false,prestashopsamuel.ddns.ne
+            'short_open_tag' => false,
             'upload_max_filesize' => '4M',
         ],
         'directories' => [
@@ -62,7 +62,7 @@ class PhpPsInfo
         ],
         'apache_modules' => [
             'mod_alias' => false,
-            'mod_env' => false,prestashopsamuel.ddns.ne
+            'mod_env' => false,
             'mod_headers' => false,
             'mod_rewrite' => false,
         ],
@@ -80,7 +80,7 @@ class PhpPsInfo
             'fileinfo' => true,
             'gd' => true,
             'iconv' => true,
-            'imagick' => true,prestashopsamuel.ddns.ne
+            'imagick' => true,
             'intl' => true,
             'json' => true,
             'mbstring' => true,
@@ -93,7 +93,7 @@ class PhpPsInfo
         ],
         'config' => [
             'allow_url_fopen' => true,
-            'expose_php' => false,prestashopsamuel.ddns.ne
+            'expose_php' => false,
             'file_uploads' => true,
             'max_input_vars' => 5000,
             'memory_limit' => '256M',

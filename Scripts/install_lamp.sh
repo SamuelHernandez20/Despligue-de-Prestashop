@@ -9,7 +9,7 @@ apt update -y
 
 # Actualizar paquetes 
 
-#apt upgrade
+apt upgrade -y
 
 # Instalacion de apache
 apt install apache2 -y
