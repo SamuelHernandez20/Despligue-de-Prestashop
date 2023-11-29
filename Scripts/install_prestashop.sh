@@ -22,10 +22,10 @@ php /var/www/html/install/index_cli.php \
    --email=$CORREO \
    --password=$PRESTASHOP_DB_PASSWORD \
    --language=es \
-   --ssl=1
-   #--name=$Nombre_tienda \
-   #--country=$Pais_tienda \
-   #--firstname=$Nombre_usuario \
-   #--lastname=$Apellido_usuario \
-   #--password=$Password_usuario \
-   #--prefix=$PRESTASHOP_DB_PREFIX \
+   --ssl=1 \
+   --name=$Nombre_tienda \
+   --country=$Pais_tienda \
+   --firstname=$Nombre_usuario \
+   --lastname=$Apellido_usuario \
+   --password=$Password_usuario \
+   --prefix=$PRESTASHOP_DB_PREFIX \
