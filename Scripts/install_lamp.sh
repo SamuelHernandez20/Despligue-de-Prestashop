@@ -9,7 +9,7 @@ apt update -y
 
 # Actualizar paquetes 
 
-apt upgrade -y
+#apt upgrade -y
 
 # Instalacion de apache
 apt install apache2 -y
@@ -38,6 +38,7 @@ systemctl enable apache2
 
 apt install php libapache2-mod-php php-mysql -y
 
+systemctl restart apache2
 
 # reinicio
 #---------------------------->
@@ -56,6 +57,7 @@ rm -rf /var/www/html/phpmyadmin
 wget https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-languages.zip -P /tmp
 
 # Instalo el unzip para descomprimir:
+systemctl restart apache2
 
 apt install unzip -y
 
@@ -74,6 +76,9 @@ chown -R www-data:www-data /var/www/html
 #Copiar el archivo de conf de apache
 
 cp ../conf/000-default.conf /etc/apache2/sites-available 
+
+systemctl restart apache2
+
 
 #Reiniciar servicio
 

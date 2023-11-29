@@ -71,18 +71,21 @@ systemctl restart apache2
 
 # Instalación de Prestashop
 
+#Borrar 
+
+rm -rf /tmp/prestashop_8.1.2.zip
+
 # Traigo el codigo fuente de Prestashop
 
-wget https://github.com/PrestaShop/PrestaShop/archive/refs/tags/8.0.0.tar.gz -P /tmp
+wget https://github.com/PrestaShop/PrestaShop/releases/download/8.1.2/prestashop_8.1.2.zip -P /tmp
 
-# Lo descomprimo en la carpeta temporal
+rm -rf /var/www/html/*
 
-tar -xzvf /tmp/8.0.0.tar.gz -C /tmp
-      
+# Lo descomprimo en /var/www/html
 
-# Mover el contenido de Prestashop a /var/www/html
+unzip /tmp/prestashop_8.1.2.zip -d /var/www/html
 
-mv -f /tmp/PrestaShop-8.0.0/* /var/www/html
+chown  www-data:www-data /var/www/html/* -R
 
 #Creacion de usuario para la base de datos de Prestashop
 #----------------------------------------------------------------------------------------------------
@@ -93,23 +96,13 @@ mysql -u root <<< "CREATE USER '$PRESTASHOP_DB_USER'@'%'IDENTIFIED BY '$PRESTASH
 mysql -u root <<< "GRANT ALL PRIVILEGES ON $PRESTASHOP_DB_NAME.* TO '$PRESTASHOP_DB_USER'@'%'"
 #----------------------------------------------------------------------------------------------------
 
-# instalación de Prestashop:
+systemctl restart mysql.service
 
-php /var/www/html/install-dev/index_cli.php \
-    --domain=$DOMINIO \
-    --db_server=$PRESTASHOP_DB_HOST \
-    --db_name=$PRESTASHOP_DB_NAME \
-    --db_user=$PRESTASHOP_DB_USER \
-    --db_password=$PRESTASHOP_DB_PASSWORD \
-    --language=es \
-    --name=$Nombre_tienda \
-    --country=$Pais_tienda \
-    --firstname=$Nombre_usuario \
-    --lastname=$Apellido_usuario \
-    --password=$Password_usuario \
-    --prefix=$PRESTASHOP_DB_PREFIX \
-    --email=$CORREO \
-    --password=$PRESTASHOP_DB_PASSWORD \
-    --ssl=1
+
+
+
+
+
+
 
 
