@@ -20,7 +20,6 @@ php /var/www/html/install/index_cli.php \
    --db_user=$PRESTASHOP_DB_USER \
    --db_password=$PRESTASHOP_DB_PASSWORD \
    --email=$CORREO \
-   --password=$PRESTASHOP_DB_PASSWORD \
    --language=es \
    --ssl=1 \
    --name=$Nombre_tienda \
