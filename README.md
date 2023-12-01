@@ -69,7 +69,23 @@ apt-get install php-dom php-xml
 ````
 `Configuración de variables en el archivo de configuración:`
 
+**Modificación de configuración PHP:**
+````
+sed -i "s/memory_limit = 128M/$memory_limit/" /etc/php/8.1/apache2/php.ini
+````
+````
+sed -i "s/upload_max_filesize = 2M/$upload_max_filesize/" /etc/php/8.1/apache2/php.ini
+````
+````
+sed -i "s/max_input_vars = 1000/$max_input_vars/" /etc/php/8.1/apache2/php.ini
+````
+````
+sed -i "s/post_max_size = 8M/$post_max_size/" /etc/php/8.1/apache2/php.ini
+````
 
+#Reinciar el siguiente archivo para que se aplique la configuración:
+
+systemctl restart apache2
 
 
 
