@@ -27,39 +27,44 @@ Para cumplir con los requisitos de las extensiones procedo a instalar las siguie
 
 `Instalación de extensiones de PHP:`
 
-#--------------------------------------------------
-#1. BCMath Arbitrary Precision Mathematics (Recommended)
+1. BCMath Arbitrary Precision Mathematics (Recommended)
 
+````
 apt install php-bcmath -y 
+````
+2. Image Processing and GD (Required and Recommended)
 
-#2. Image Processing and GD (Required and Recommended)
-
+````
 apt install php-gd -y 
+````
+3. Internationalization Functions (Intl) (Required and Recommended)
 
-#3. Internationalization Functions (Intl) (Required and Recommended)
-
+````
 apt install php-intl -y 
+````
+4. Zip (Required and Recommended)
 
-#4. Zip (Required and Recommended)
-
+````
 apt install php-zip -y
+````
+5. Memcached y algunas tools (Recommended)
 
-#5. Memcached y algunas tools (Recommended)
 ````
 apt install memcached -y
-
+````
+````
 apt install libmemcached-tools -y
-
-#6. Curl
-
+````
+6. Curl
+````
 apt install php-curl -y
-
-#7. Cadena multibyte (Mbstring)
-
+````
+7. Cadena multibyte (Mbstring)
+````
 apt install php-mbstring -y
-
-#8. 
-
+````
+8. 
+````
 apt-get install php-dom php-xml
 ````
 
