@@ -106,7 +106,10 @@ php /var/www/html/install/index_cli.php \
    --password=$Password_usuario \
    --prefix=$PRESTASHOP_DB_PREFIX \
 ````
+Posteriormente, para mayor seguridad procederé con el borrado de la carpeta **install**, para poder acceder posteriormente al **Backoffice**
 
-
+````
+rm -rf /var/www/html/install/
+````
 
 
