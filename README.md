@@ -103,33 +103,7 @@ sed -i "s/max_input_vars = 1000/$max_input_vars/" /etc/php/8.1/apache2/php.ini
 sed -i "s/post_max_size = 8M/$post_max_size/" /etc/php/8.1/apache2/php.ini
 ````
 
-Reiniciar el siguiente archivo para que se aplique la configuración:
 
-systemctl restart apache2
-
-## 1.2 Pre-instalación del Prestashop
-
-Antes de proceder con la instalación de **Prestashop**, se procederá con el el **borrado** de las **descargas previas** de la **carpeta temporal**
-
-````
-rm -rf /tmp/prestashop_8.1.2.zip
-````
-
-Traigo el codigo fuente de Prestashop, esra vez con la versión adecuada:
-
-````
-wget https://github.com/PrestaShop/PrestaShop/releases/download/8.1.2/prestashop_8.1.2.zip -P /tmp
-````
-Se borran contenido previo del directorio raíz:
-
-````
-rm -rf /var/www/html/*
-````
-Lo descomprimo en /var/www/html
-
-````
-unzip /tmp/prestashop_8.1.2.zip -d /var/www/html
-````
 
 
 
