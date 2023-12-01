@@ -67,6 +67,8 @@ apt install php-mbstring -y
 ````
 apt-get install php-dom php-xml
 ````
+`Configuración de variables en el archivo de configuración:`
+
 
 
 
