@@ -42,7 +42,7 @@ apt install php-gd -y
 ````
 apt install php-intl -y 
 ````
-**4.** Zip (Required and Recommended)
+**4.** Zip (Required and Recommended)````
 
 ````
 apt install php-zip -y
@@ -66,7 +66,27 @@ apt install php-mbstring -y
 **8.** DOM y XML
 ````
 apt-get install php-dom php-xml
-````
+````source .env
+
+php /var/www/html/install/index_cli.php \
+   --domain=$DOMINIO \
+   --db_server=$PRESTASHOP_DB_HOST \
+   --db_name=$PRESTASHOP_DB_NAME \
+   --db_user=$PRESTASHOP_DB_USER \
+   --db_password=$PRESTASHOP_DB_PASSWORD \
+   --email=$CORREO \
+   --language=es \
+   --ssl=1 \
+   --name=$Nombre_tienda \
+   --country=$Pais_tienda \
+   --firstname=$Nombre_usuario \
+   --lastname=$Apellido_usuario \
+   --password=$Password_usuario \
+   --prefix=$PRESTASHOP_DB_PREFIX \
+
+# Borramos carpeta de instalación para mayor seguridad.
+
+rm -rf /var/www/html/install/
 `Configuración de variables en el archivo de configuración:`
 
 **Modificación de configuración PHP:**
@@ -103,7 +123,7 @@ wget https://github.com/PrestaShop/PrestaShop/releases/download/8.1.2/prestashop
 Se borran contenido previo del directorio raíz:
 
 ````
-rm -rf /var/www/html/*
+rm -rf /var/www/html/*````
 ````
 Lo descomprimo en /var/www/html
 
@@ -128,5 +148,26 @@ systemctl restart mysql.service
 ````
 ## 1.3 Instalación del Prestashop
 
+source .env
 
+````
+php /var/www/html/install/index_cli.php \
+   --domain=$DOMINIO \
+   --db_server=$PRESTASHOP_DB_HOST \
+   --db_name=$PRESTASHOP_DB_NAME \
+   --db_user=$PRESTASHOP_DB_USER \
+   --db_password=$PRESTASHOP_DB_PASSWORD \
+   --email=$CORREO \
+   --language=es \
+   --ssl=1 \
+   --name=$Nombre_tienda \
+   --country=$Pais_tienda \
+   --firstname=$Nombre_usuario \
+   --lastname=$Apellido_usuario \
+   --password=$Password_usuario \
+   --prefix=$PRESTASHOP_DB_PREFIX \
+````
+Borramos carpeta de instalación para mayor seguridad.
+
+rm -rf /var/www/html/install/
 
