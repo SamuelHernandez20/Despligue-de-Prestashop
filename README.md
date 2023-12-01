@@ -87,6 +87,7 @@ sed -i "s/max_input_vars = 1000/$max_input_vars/" /etc/php/8.1/apache2/php.ini
 sed -i "s/post_max_size = 8M/$post_max_size/" /etc/php/8.1/apache2/php.ini
 ````
 
+Desde el otro script se procederá con la instalación del Prestashop, dentro del directorio de instalación **/install**
 ````
 php /var/www/html/install/index_cli.php \
    --domain=$DOMINIO \
