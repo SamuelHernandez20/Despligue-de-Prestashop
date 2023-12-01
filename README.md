@@ -22,9 +22,8 @@ En este caso la lógica del despliegue esta divida en una parte la **instalació
 
 Habrá que tener definido en algun lado el phpinfo.php en el directorio donde este descomprimido el **Prestashop**, para que a la hora de acceder a traves del navegador se puedan observar bien los requisitos:
 
-````
-Para c
-umplir con los requisitos de las extensiones procedo a instalar las siguientes:
+
+Para cumplir con los requisitos de las extensiones procedo a instalar las siguientes:
 ````
 Instalación de extensiones de PHP:
 ````
