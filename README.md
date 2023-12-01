@@ -126,5 +126,7 @@ mysql -u root <<< "GRANT ALL PRIVILEGES ON $PRESTASHOP_DB_NAME.* TO '$PRESTASHOP
 ````
 systemctl restart mysql.service
 ````
+## 1.3 Instalación del Prestashop
+
 
 
