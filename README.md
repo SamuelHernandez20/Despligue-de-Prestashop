@@ -70,24 +70,6 @@ apt-get install php-dom php-xml
 ````
 source .env
 ````
-````
-php /var/www/html/install/index_cli.php \
-   --domain=$DOMINIO \
-   --db_server=$PRESTASHOP_DB_HOST \
-   --db_name=$PRESTASHOP_DB_NAME \
-   --db_user=$PRESTASHOP_DB_USER \
-   --db_password=$PRESTASHOP_DB_PASSWORD \
-   --email=$CORREO \
-   --language=es \
-   --ssl=1 \
-   --name=$Nombre_tienda \
-   --country=$Pais_tienda \
-   --firstname=$Nombre_usuario \
-   --lastname=$Apellido_usuario \
-   --password=$Password_usuario \
-   --prefix=$PRESTASHOP_DB_PREFIX \
-````
-
 `Configuración de variables en el archivo de configuración:`
 
 **Modificación de configuración PHP:**
@@ -105,6 +87,23 @@ sed -i "s/max_input_vars = 1000/$max_input_vars/" /etc/php/8.1/apache2/php.ini
 sed -i "s/post_max_size = 8M/$post_max_size/" /etc/php/8.1/apache2/php.ini
 ````
 
+````
+php /var/www/html/install/index_cli.php \
+   --domain=$DOMINIO \
+   --db_server=$PRESTASHOP_DB_HOST \
+   --db_name=$PRESTASHOP_DB_NAME \
+   --db_user=$PRESTASHOP_DB_USER \
+   --db_password=$PRESTASHOP_DB_PASSWORD \
+   --email=$CORREO \
+   --language=es \
+   --ssl=1 \
+   --name=$Nombre_tienda \
+   --country=$Pais_tienda \
+   --firstname=$Nombre_usuario \
+   --lastname=$Apellido_usuario \
+   --password=$Password_usuario \
+   --prefix=$PRESTASHOP_DB_PREFIX \
+````
 
 
 
