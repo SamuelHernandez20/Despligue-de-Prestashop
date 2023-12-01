@@ -66,8 +66,11 @@ apt install php-mbstring -y
 **8.** DOM y XML
 ````
 apt-get install php-dom php-xml
-````source .env
-
+````
+````
+source .env
+````
+````
 php /var/www/html/install/index_cli.php \
    --domain=$DOMINIO \
    --db_server=$PRESTASHOP_DB_HOST \
@@ -83,8 +86,8 @@ php /var/www/html/install/index_cli.php \
    --lastname=$Apellido_usuario \
    --password=$Password_usuario \
    --prefix=$PRESTASHOP_DB_PREFIX \
-
-# Borramos carpeta de instalación para mayor seguridad.
+````
+Borramos carpeta de instalación para mayor seguridad.
 
 rm -rf /var/www/html/install/
 
@@ -92,16 +95,18 @@ rm -rf /var/www/html/install/
 
 **Modificación de configuración PHP:**
 
-
+````
 sed -i "s/memory_limit = 128M/$memory_limit/" /etc/php/8.1/apache2/php.ini
-
-
+````
+````
 sed -i "s/upload_max_filesize = 2M/$upload_max_filesize/" /etc/php/8.1/apache2/php.ini
-
+````
+````
 sed -i "s/max_input_vars = 1000/$max_input_vars/" /etc/php/8.1/apache2/php.ini
-
+````
+````
 sed -i "s/post_max_size = 8M/$post_max_size/" /etc/php/8.1/apache2/php.ini
-
+````
 
 
 
