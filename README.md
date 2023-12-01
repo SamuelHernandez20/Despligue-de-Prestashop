@@ -87,6 +87,44 @@ Reiniciar el siguiente archivo para que se aplique la configuración:
 
 systemctl restart apache2
 
+## 1.2 Pre-instalación del Prestashop
 
+Antes de proceder con la instalación de **Prestashop**, se procederá con el el **borrado** de las **descargas previas** de la **carpeta temporal**
+
+````
+rm -rf /tmp/prestashop_8.1.2.zip
+````
+
+Traigo el codigo fuente de Prestashop, esra vez con la versión adecuada:
+
+````
+wget https://github.com/PrestaShop/PrestaShop/releases/download/8.1.2/prestashop_8.1.2.zip -P /tmp
+````
+Se borran contenido previo del directorio raíz:
+
+````
+rm -rf /var/www/html/*
+````
+Lo descomprimo en /var/www/html
+
+````
+unzip /tmp/prestashop_8.1.2.zip -d /var/www/html
+````
+Le cambio el propietario al contenido descomprimido en el directorio raíz de forma recursiva:
+
+````
+chown  www-data:www-data /var/www/html/* -R
+````
+Creacion de usuario para la base de datos de Prestashop:
+````
+mysql -u root <<< "DROP DATABASE IF EXISTS $PRESTASHOP_DB_NAME"
+mysql -u root <<< "CREATE DATABASE $PRESTASHOP_DB_NAME"
+mysql -u root <<< "DROP USER IF EXISTS '$PRESTASHOP_DB_USER'@'%'"
+mysql -u root <<< "CREATE USER '$PRESTASHOP_DB_USER'@'%'IDENTIFIED BY '$PRESTASHOP_DB_PASSWORD'"
+mysql -u root <<< "GRANT ALL PRIVILEGES ON $PRESTASHOP_DB_NAME.* TO '$PRESTASHOP_DB_USER'@'%'"
+````
+````
+systemctl restart mysql.service
+````
 
 
