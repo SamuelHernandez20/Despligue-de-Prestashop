@@ -24,9 +24,9 @@ Habrá que tener definido en algun lado el phpinfo.php en el directorio donde es
 
 
 Para cumplir con los requisitos de las extensiones procedo a instalar las siguientes:
-````
-Instalación de extensiones de PHP:
-````
+
+`Instalación de extensiones de PHP:`
+
 #--------------------------------------------------
 #1. BCMath Arbitrary Precision Mathematics (Recommended)
 
