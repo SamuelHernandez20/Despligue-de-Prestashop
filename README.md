@@ -87,9 +87,6 @@ php /var/www/html/install/index_cli.php \
    --password=$Password_usuario \
    --prefix=$PRESTASHOP_DB_PREFIX \
 ````
-Borramos carpeta de instalación para mayor seguridad.
-
-rm -rf /var/www/html/install/
 
 `Configuración de variables en el archivo de configuración:`
 
