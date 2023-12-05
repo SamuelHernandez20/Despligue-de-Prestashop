@@ -56,9 +56,10 @@ rm -rf /var/www/html/phpmyadmin
 
 wget https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-languages.zip -P /tmp
 
-# Instalo el unzip para descomprimir:
+# Reinicio de apache
 systemctl restart apache2
 
+# Instalo el unzip para descomprimir:
 apt install unzip -y
 
 #descompresion en la carpeta /tmp

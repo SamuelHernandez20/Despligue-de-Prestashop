@@ -79,11 +79,17 @@ rm -rf /tmp/prestashop_8.1.2.zip
 
 wget https://github.com/PrestaShop/PrestaShop/releases/download/8.1.2/prestashop_8.1.2.zip -P /tmp
 
+# Eliminar instalaciones previas del prestasho`p`
+
 rm -rf /var/www/html/*
 
 # Lo descomprimo en /var/www/html
 
 unzip /tmp/prestashop_8.1.2.zip -d /var/www/html
+
+# Descomprimo el otro zip que tiene dentro al directorio raíz:
+
+unzip -o /var/www/html/prestashop.zip -d /var/www/html
 
 chown  www-data:www-data /var/www/html/* -R
 
@@ -97,12 +103,3 @@ mysql -u root <<< "GRANT ALL PRIVILEGES ON $PRESTASHOP_DB_NAME.* TO '$PRESTASHOP
 #----------------------------------------------------------------------------------------------------
 
 systemctl restart mysql.service
-
-
-
-
-
-
-
-
-
